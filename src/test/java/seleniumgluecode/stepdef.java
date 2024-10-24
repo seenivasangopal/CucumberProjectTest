@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
+import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +38,11 @@ public class stepdef {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.capgemini.com/");
         System.out.println("testing message");
-        readDataLineByLine("C:/Users/gseeniva/OneDrive - Capgemini/Documents/intellij/demo/Cucumber_testing/src/test/resources/csvfiles/excsvfile.csv");
+        String path=new File("src/test/resources/csvfiles/excsvfile.csv").getAbsolutePath();
+        System.out.println("path--->"+path);
+        readDataLineByLine(path);
+//        readDataLineByLine("C:/Users/gseeniva/OneDrive - Capgemini/Documents/intellij/demo/Cucumber_testing/src/test/resources/csvfiles/excsvfile.csv");
+//        readDataLineByLine("http://localhost:1111/job/CucumberTestingWithGit/ws/src/test/resources/csvfiles/excsvfile.csv");
 
     }
     public static void readDataLineByLine(String file)
